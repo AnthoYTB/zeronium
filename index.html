@@ -1,179 +1,279 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeronium - Règlement des Factions</title>
-    <style>
-        :root {
-            --primary: #d63031;
-            --secondary: #2d3436;
-            --accent: #ff7675;
-            --bg-dark: #1e272e;
-            --text-light: #dfe6e9;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Zeronium - Règlements</title>
+   <style>
+       :root {
+           --primary: #d63031;
+           --secondary: #2d3436;
+           --accent: #ff7675;
+           --bg-dark: #1e272e;
+           --text-light: #dfe6e9;
+       }
+       
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+       body {
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           background: var(--bg-dark);
+           color: var(--text-light);
+           padding-top: 60px;
+           line-height: 1.6;
+       }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+       .navbar {
+           position: fixed;
+           top: 0;
+           width: 100%;
+           background: rgba(0, 0, 0, 0.9);
+           backdrop-filter: blur(10px);
+           z-index: 1000;
+       }
 
-        .header {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
-        }
+       .nav-container {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 0 1rem;
+       }
 
-        .header h1 {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
+       .nav-menu {
+           display: flex;
+           justify-content: center;
+           list-style: none;
+       }
 
-        .section {
-            background: rgba(45, 52, 54, 0.9);
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-left: 4px solid var(--primary);
-        }
+       .nav-item {
+           position: relative;
+       }
 
-        .section h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
+       .nav-link {
+           display: block;
+           padding: 1rem;
+           color: var(--text-light);
+           text-decoration: none;
+           transition: color 0.3s;
+       }
 
-        .section h3 {
-            color: var(--accent);
-            margin: 1.5rem 0 1rem 0;
-        }
+       .nav-link:hover {
+           color: var(--primary);
+       }
 
-        .section ul {
-            list-style: none;
-            margin-left: 1rem;
-        }
+       .dropdown {
+           display: none;
+           position: absolute;
+           background: rgba(0, 0, 0, 0.9);
+           min-width: 200px;
+           border-radius: 0 0 5px 5px;
+       }
 
-        .section li {
-            margin: 0.8rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
+       .nav-item:hover .dropdown {
+           display: block;
+       }
 
-        .section li:before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
+       .dropdown a {
+           padding: 1rem;
+           display: block;
+           color: var(--text-light);
+           text-decoration: none;
+       }
 
-        .important {
-            background: rgba(214, 48, 49, 0.1);
-            border: 2px solid var(--primary);
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-        }
+       .dropdown a:hover {
+           background: var(--primary);
+           color: white;
+       }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
+       .header {
+           text-align: center;
+           padding: 4rem 2rem;
+           background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
+           margin-bottom: 2rem;
+       }
 
-            .section {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+       .header h1 {
+           font-size: 3rem;
+           color: var(--primary);
+           margin-bottom: 1rem;
+       }
+
+       .content {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 2rem;
+       }
+
+       .rule-section {
+           background: rgba(45, 52, 54, 0.9);
+           border-radius: 10px;
+           padding: 2rem;
+           margin: 2rem 0;
+           border-left: 4px solid var(--primary);
+       }
+
+       .alert-box {
+           background: rgba(214, 48, 49, 0.1);
+           border: 2px solid var(--primary);
+           padding: 1rem;
+           margin: 1rem 0;
+           border-radius: 5px;
+       }
+
+       .rule-title {
+           color: var(--primary);
+           font-size: 1.8rem;
+           margin-bottom: 1.5rem;
+           border-bottom: 2px solid var(--primary);
+           padding-bottom: 0.5rem;
+       }
+
+       .sub-section {
+           margin: 1.5rem 0;
+       }
+
+       .sub-section h3 {
+           color: var(--accent);
+           margin-bottom: 1rem;
+       }
+
+       .rule-list {
+           list-style: none;
+       }
+
+       .rule-list li {
+           margin: 0.8rem 0;
+           padding-left: 1.5rem;
+           position: relative;
+       }
+
+       .rule-list li:before {
+           content: "•";
+           color: var(--accent);
+           position: absolute;
+           left: 0;
+       }
+
+       #menu-toggle {
+           display: none;
+       }
+
+       @media (max-width: 768px) {
+           .nav-menu {
+               display: none;
+               flex-direction: column;
+           }
+
+           .nav-menu.active {
+               display: flex;
+           }
+
+           #menu-toggle {
+               display: block;
+               padding: 1rem;
+               background: none;
+               border: none;
+               color: var(--text-light);
+               cursor: pointer;
+           }
+
+           .dropdown {
+               position: static;
+               background: rgba(0, 0, 0, 0.5);
+           }
+
+           .header h1 {
+               font-size: 2rem;
+           }
+       }
+   </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Officialisation d'une Faction</h1>
-        <p>Guide complet pour créer et gérer une faction sur Zeronium</p>
-    </div>
+   <nav class="navbar">
+       <div class="nav-container">
+           <button id="menu-toggle">☰ Menu</button>
+           <ul class="nav-menu">
+               <li class="nav-item">
+                   <a href="#hrp" class="nav-link">Règlement HRP</a>
+               </li>
+               <li class="nav-item">
+                   <a href="#rp" class="nav-link">Règlement RP</a>
+               </li>
+               <li class="nav-item">
+                   <a href="#factions" class="nav-link">Factions ▼</a>
+                   <div class="dropdown">
+                       <a href="#officialisation">Officialisation</a>
+                       <a href="#reglement-faction">Règlement Faction</a>
+                   </div>
+               </li>
+           </ul>
+       </div>
+   </nav>
 
-    <div class="container">
-        <div class="section">
-            <h2>1. Conditions de Création</h2>
-            <ul>
-                <li>Minimum 5 membres actifs requis</li>
-                <li>Notoriété établie sur le serveur</li>
-                <li>Preuve d'investissement dans la durée</li>
-            </ul>
-        </div>
+   <div class="header">
+       <h1>ZERONIUM</h1>
+       <p>Règlement Officiel du Serveur Post-Apocalyptique</p>
+   </div>
 
-        <div class="section">
-            <h2>2. Thème et Cohérence</h2>
-            <div class="important">
-                <p>Le thème doit s'aligner avec l'univers post-apocalyptique. Les inspirations directes de séries ou films ne sont pas autorisées.</p>
-            </div>
-            <ul>
-                <li>Description détaillée de l'histoire requise</li>
-                <li>Objectifs clairement définis</li>
-                <li>Activités cohérentes avec l'univers</li>
-            </ul>
-        </div>
+   <div class="content">
+       <!-- Section RP -->
+       <div class="rule-section" id="rp">
+           <h1 class="rule-title">📜 Règlement RP</h1>
+           
+           <div class="sub-section">
+               <h3>1. Respect et Comportement</h3>
+               <ul class="rule-list">
+                   <li>Respect mutuel obligatoire, sauf dans le cadre d'une scène RP cohérente</li>
+                   <li>Contestations via ticket uniquement</li>
+                   <li>Discussions HRP exclusives à Discord</li>
+               </ul>
+           </div>
 
-        <div class="section">
-            <h2>3. Processus de Création</h2>
-            <h3>Dossier à soumettre :</h3>
-            <ul>
-                <li>Nom de la faction</li>
-                <li>Description détaillée</li>
-                <li>Liste des membres initiaux</li>
-                <li>Règlement interne</li>
-                <li>Plan d'activités et d'interactions</li>
-            </ul>
-        </div>
+           <div class="sub-section">
+               <h3>2. Règles de Roleplay</h3>
+               <ul class="rule-list">
+                   <li>Immersion constante dans le personnage</li>
+                   <li>Histoire cohérente et réaliste requise</li>
+                   <li>Mort RP soumise à validation staff</li>
+                   <li>Interdiction du powergaming et metagaming</li>
+                   <li>Fear RP et Pain RP obligatoires</li>
+                   <li>Délai obligatoire pour les vengeances</li>
+               </ul>
+               
+               <div class="alert-box">
+                   <h4>⚠️ Comportements Interdits</h4>
+                   <ul class="rule-list">
+                       <li>No Fear : Absence de réaction face à la peur</li>
+                       <li>No Pain : Absence de réaction face à la douleur</li>
+                       <li>Powergaming : Actions irréalistes</li>
+                       <li>Metagaming : Utilisation d'informations HRP</li>
+                   </ul>
+               </div>
+           </div>
 
-        <div class="section">
-            <h2>4. Structure et Responsabilités</h2>
-            <ul>
-                <li>Hiérarchie claire et définie</li>
-                <li>Code de conduite interne</li>
-                <li>Système de sanctions internes</li>
-                <li>Organisation d'événements réguliers</li>
-            </ul>
-        </div>
+           <div class="sub-section">
+               <h3>3. Interaction avec l'Environnement</h3>
+               <ul class="rule-list">
+                   <li>Priorité à la survie du personnage</li>
+                   <li>Échanges réalistes et contextualisés</li>
+                   <li>Zone Safe : PVP et violence interdits</li>
+                   <li>Interdiction de privatiser les lieux de loot importants</li>
+               </ul>
+           </div>
+       </div>
 
-        <div class="section">
-            <h2>5. Surveillance et Sanctions</h2>
-            <div class="important">
-                <h3>Sanctions possibles :</h3>
-                <ul>
-                    <li>Avertissements</li>
-                    <li>Suspension temporaire</li>
-                    <li>Dissolution en cas de récidive</li>
-                </ul>
-            </div>
-        </div>
+       <!-- [Section HRP sera ajoutée ici] -->
 
-        <div class="section">
-            <h2>6. Dissolution</h2>
-            <ul>
-                <li>Notification obligatoire à l'administration</li>
-                <li>Justification détaillée requise</li>
-                <li>Redistribution des ressources</li>
-            </ul>
-        </div>
-    </div>
+       <!-- [Section Factions sera ajoutée ici] -->
+   </div>
+
+   <script>
+       document.getElementById('menu-toggle').addEventListener('click', function() {
+           document.querySelector('.nav-menu').classList.toggle('active');
+       });
+   </script>
 </body>
 </html>
