@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeronium - Règlement</title>
+    <style>
+        :root {
+            --primary: #d63031;
+            --secondary: #2d3436;
+            --accent: #ff7675;
+            --bg-dark: #1e272e;
+            --text-light: #dfe6e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(0,0,0,0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .rule-card {
+            background: rgba(45, 52, 54, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .rule-card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .rule-card ul {
+            list-style: none;
+        }
+
+        .rule-card li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .rule-card li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .warning {
+            background: rgba(214, 48, 49, 0.1);
+            border: 2px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#hrp">Règles HRP</a></li>
+            <li><a href="#rp">Règles RP</a></li>
+            <li><a href="#factions">Factions</a></li>
+            <li><a href="#combat">Combat</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>ZERONIUM</h1>
+        <p>Règlement Officiel du Serveur</p>
+    </div>
+
+    <div class="section" id="hrp">
+        <div class="rule-card">
+            <h2>🎮 Règles Hors RolePlay</h2>
+            <ul>
+                <li>Respect mutuel entre joueurs obligatoire</li>
+                <li>Interdiction formelle des insultes/provocations</li>
+                <li>Micro obligatoire et de qualité correcte</li>
+                <li>Interdiction des mods/cheats</li>
+                <li>Bugs à signaler, non à exploiter</li>
+            </ul>
+            <div class="warning">
+                <h3>⚠️ Sanctions</h3>
+                <p>Tout non-respect de ces règles entraînera des sanctions pouvant aller jusqu'au bannissement définitif.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="rp">
+        <div class="rule-card">
+            <h2>🎭 Règles RolePlay</h2>
+            <ul>
+                <li>Rester dans son personnage en toute circonstance</li>
+                <li>Pas de références HRP en jeu</li>
+                <li>Respect du contexte post-apocalyptique</li>
+                <li>Utilisation de /me pour les actions</li>
+                <li>Pas de meta-gaming ou power-gaming</li>
+                <li>Scénarios cohérents avec l'univers</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="factions">
+        <div class="rule-card">
+            <h2>👥 Règlement des Factions</h2>
+            <ul>
+                <li>Structure : 1 Leader + 2 adjoints maximum</li>
+                <li>Discord faction obligatoire avec accès staff</li>
+                <li>Alliances officielles via ticket staff</li>
+                <li>Gestion réaliste des ressources</li>
+                <li>Pillages uniquement avec justification RP</li>
+                <li>80% des ressources perdues si dissolution</li>
+            </ul>
+            <div class="warning">
+                <p>La triche entraîne un bannissement permanent et la dissolution de la faction.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="combat">
+        <div class="rule-card">
+            <h2>⚔️ Règles de Combat</h2>
+            <ul>
+                <li>Fear RP obligatoire</li>
+                <li>Combat uniquement avec raison RP valable</li>
+                <li>Respect des zones sécurisées</li>
+                <li>Traitement humain des prisonniers</li>
+                <li>Torture interdite sans contexte RP</li>
+                <li>Temps de détention limité et raisonnable</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Zeronium - Serveur Post-Apocalyptique</p>
+    </footer>
+</body>
+</html>
