@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeronium - Règlement</title>
+    <title>Zeronium - Règlement des Factions</title>
     <style>
         :root {
             --primary: #d63031;
@@ -26,52 +26,25 @@
             line-height: 1.6;
         }
 
-        nav {
-            background: rgba(0,0,0,0.8);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
+        }
+
+        .header h1 {
+            font-size: 3rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
         .section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .rule-card {
             background: rgba(45, 52, 54, 0.9);
             border-radius: 10px;
             padding: 2rem;
@@ -79,133 +52,128 @@
             border-left: 4px solid var(--primary);
         }
 
-        .rule-card h2 {
+        .section h2 {
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
 
-        .rule-card ul {
+        .section h3 {
+            color: var(--accent);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .section ul {
             list-style: none;
+            margin-left: 1rem;
         }
 
-        .rule-card li {
-            margin: 0.5rem 0;
+        .section li {
+            margin: 0.8rem 0;
             padding-left: 1.5rem;
             position: relative;
         }
 
-        .rule-card li:before {
+        .section li:before {
             content: "•";
             color: var(--accent);
             position: absolute;
             left: 0;
         }
 
-        .warning {
+        .important {
             background: rgba(214, 48, 49, 0.1);
             border: 2px solid var(--primary);
-            padding: 1rem;
+            padding: 1.5rem;
             margin: 1rem 0;
             border-radius: 5px;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--secondary);
-        }
-
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+            .container {
+                padding: 1rem;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#hrp">Règles HRP</a></li>
-            <li><a href="#rp">Règles RP</a></li>
-            <li><a href="#factions">Factions</a></li>
-            <li><a href="#combat">Combat</a></li>
-        </ul>
-    </nav>
-
-    <div class="hero">
-        <h1>ZERONIUM</h1>
-        <p>Règlement Officiel du Serveur</p>
+    <div class="header">
+        <h1>Officialisation d'une Faction</h1>
+        <p>Guide complet pour créer et gérer une faction sur Zeronium</p>
     </div>
 
-    <div class="section" id="hrp">
-        <div class="rule-card">
-            <h2>🎮 Règles Hors RolePlay</h2>
+    <div class="container">
+        <div class="section">
+            <h2>1. Conditions de Création</h2>
             <ul>
-                <li>Respect mutuel entre joueurs obligatoire</li>
-                <li>Interdiction formelle des insultes/provocations</li>
-                <li>Micro obligatoire et de qualité correcte</li>
-                <li>Interdiction des mods/cheats</li>
-                <li>Bugs à signaler, non à exploiter</li>
+                <li>Minimum 5 membres actifs requis</li>
+                <li>Notoriété établie sur le serveur</li>
+                <li>Preuve d'investissement dans la durée</li>
             </ul>
-            <div class="warning">
-                <h3>⚠️ Sanctions</h3>
-                <p>Tout non-respect de ces règles entraînera des sanctions pouvant aller jusqu'au bannissement définitif.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Thème et Cohérence</h2>
+            <div class="important">
+                <p>Le thème doit s'aligner avec l'univers post-apocalyptique. Les inspirations directes de séries ou films ne sont pas autorisées.</p>
+            </div>
+            <ul>
+                <li>Description détaillée de l'histoire requise</li>
+                <li>Objectifs clairement définis</li>
+                <li>Activités cohérentes avec l'univers</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. Processus de Création</h2>
+            <h3>Dossier à soumettre :</h3>
+            <ul>
+                <li>Nom de la faction</li>
+                <li>Description détaillée</li>
+                <li>Liste des membres initiaux</li>
+                <li>Règlement interne</li>
+                <li>Plan d'activités et d'interactions</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. Structure et Responsabilités</h2>
+            <ul>
+                <li>Hiérarchie claire et définie</li>
+                <li>Code de conduite interne</li>
+                <li>Système de sanctions internes</li>
+                <li>Organisation d'événements réguliers</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. Surveillance et Sanctions</h2>
+            <div class="important">
+                <h3>Sanctions possibles :</h3>
+                <ul>
+                    <li>Avertissements</li>
+                    <li>Suspension temporaire</li>
+                    <li>Dissolution en cas de récidive</li>
+                </ul>
             </div>
         </div>
-    </div>
 
-    <div class="section" id="rp">
-        <div class="rule-card">
-            <h2>🎭 Règles RolePlay</h2>
+        <div class="section">
+            <h2>6. Dissolution</h2>
             <ul>
-                <li>Rester dans son personnage en toute circonstance</li>
-                <li>Pas de références HRP en jeu</li>
-                <li>Respect du contexte post-apocalyptique</li>
-                <li>Utilisation de /me pour les actions</li>
-                <li>Pas de meta-gaming ou power-gaming</li>
-                <li>Scénarios cohérents avec l'univers</li>
+                <li>Notification obligatoire à l'administration</li>
+                <li>Justification détaillée requise</li>
+                <li>Redistribution des ressources</li>
             </ul>
         </div>
     </div>
-
-    <div class="section" id="factions">
-        <div class="rule-card">
-            <h2>👥 Règlement des Factions</h2>
-            <ul>
-                <li>Structure : 1 Leader + 2 adjoints maximum</li>
-                <li>Discord faction obligatoire avec accès staff</li>
-                <li>Alliances officielles via ticket staff</li>
-                <li>Gestion réaliste des ressources</li>
-                <li>Pillages uniquement avec justification RP</li>
-                <li>80% des ressources perdues si dissolution</li>
-            </ul>
-            <div class="warning">
-                <p>La triche entraîne un bannissement permanent et la dissolution de la faction.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section" id="combat">
-        <div class="rule-card">
-            <h2>⚔️ Règles de Combat</h2>
-            <ul>
-                <li>Fear RP obligatoire</li>
-                <li>Combat uniquement avec raison RP valable</li>
-                <li>Respect des zones sécurisées</li>
-                <li>Traitement humain des prisonniers</li>
-                <li>Torture interdite sans contexte RP</li>
-                <li>Temps de détention limité et raisonnable</li>
-            </ul>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2024 Zeronium - Serveur Post-Apocalyptique</p>
-    </footer>
 </body>
 </html>
