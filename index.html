@@ -4,197 +4,402 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Zeronium - Règlements</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Zeronium - Règlements</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    <style>
-       :root {
-           --primary: #d63031;
-           --secondary: #2d3436;
-           --accent: #ff7675;
-           --bg-dark: #1e272e;
-           --text-light: #dfe6e9;
-       }
-       
-       * {
-           margin: 0;
-           padding: 0;
-           box-sizing: border-box;
-       }
+:root {
+   --primary: #1f2937;
+   --secondary: #374151;
+   --accent: #9b1c1c;
+   --bg-dark: #111827;
+   --bg-darker: #030712;
+   --text-light: #e5e7eb;
+   --text-dim: #9ca3af;
+   --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+   --gradient: linear-gradient(135deg, rgba(31, 41, 55, 0.9), rgba(3, 7, 18, 0.95));
+}
 
-       body {
-           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-           background: var(--bg-dark);
-           color: var(--text-light);
-           padding-top: 60px;
-           line-height: 1.6;
-       }
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Inter', sans-serif;
+}
 
-       .navbar {
-           position: fixed;
-           top: 0;
-           width: 100%;
-           background: rgba(0, 0, 0, 0.9);
-           backdrop-filter: blur(10px);
-           z-index: 1000;
-       }
+html {
+   scroll-behavior: smooth;
+   scroll-padding-top: 80px;
+}
 
-       .nav-container {
-           max-width: 1200px;
-           margin: 0 auto;
-           padding: 0 1rem;
-       }
+body {
+   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+               url('https://media.discordapp.net/attachments/1093518343258001490/1098217126491336704/modifantho.png?ex=67942a26&is=6792d8a6&hm=bb1fc1eb8f4413299dfe09f745006493c8ef6876dc823c40c8c4ee08e94c5077&=&format=webp&quality=lossless&width=1193&height=671') center/cover fixed;
+   color: var(--text-light);
+   min-height: 100vh;
+   line-height: 1.6;
+}
 
-       .nav-menu {
-           display: flex;
-           justify-content: center;
-           list-style: none;
-       }
+/* Navbar */
+.navbar {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   height: 80px;
+   background: rgba(3, 7, 18, 0.85);
+   backdrop-filter: blur(10px);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+   z-index: 1000;
+}
 
-       .nav-item {
-           position: relative;
-       }
+.nav-container {
+   max-width: 1280px;
+   margin: 0 auto;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0 1.5rem;
+}
 
-       .nav-link {
-           display: block;
-           padding: 1rem;
-           color: var(--text-light);
-           text-decoration: none;
-           transition: color 0.3s;
-       }
+.nav-menu {
+   display: flex;
+   height: 100%;
+   gap: 2rem;
+   list-style: none;
+}
 
-       .nav-link:hover {
-           color: var(--primary);
-       }
+.nav-item {
+   height: 100%;
+   display: flex;
+   align-items: center;
+   position: relative;
+}
 
-       .dropdown {
-           display: none;
-           position: absolute;
-           background: rgba(0, 0, 0, 0.9);
-           min-width: 200px;
-           border-radius: 0 0 5px 5px;
-       }
+.nav-link {
+   height: 100%;
+   display: flex;
+   align-items: center;
+   padding: 0 1.5rem;
+   color: var(--text-light);
+   text-decoration: none;
+   font-weight: 500;
+   letter-spacing: 0.5px;
+   transition: all 0.3s ease;
+}
 
-       .nav-item:hover .dropdown {
-           display: block;
-       }
+.nav-link:hover {
+   color: var(--accent);
+}
 
-       .dropdown a {
-           padding: 1rem;
-           display: block;
-           color: var(--text-light);
-           text-decoration: none;
-       }
+.dropdown {
+   position: absolute;
+   top: 100%;
+   left: 0;
+   min-width: 240px;
+   background: rgba(3, 7, 18, 0.95);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-radius: 8px;
+   opacity: 0;
+   visibility: hidden;
+   transform: translateY(10px);
+   transition: all 0.3s ease;
+}
 
-       .dropdown a:hover {
-           background: var(--primary);
-           color: white;
-       }
+.nav-item:hover .dropdown {
+   opacity: 1;
+   visibility: visible;
+   transform: translateY(0);
+}
 
-       .header {
-           text-align: center;
-           padding: 4rem 2rem;
-           background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080') center/cover;
-           margin-bottom: 2rem;
-       }
+.dropdown a {
+   display: block;
+   padding: 1rem 1.5rem;
+   color: var(--text-light);
+   text-decoration: none;
+   transition: all 0.3s ease;
+}
 
-       .header h1 {
-           font-size: 3rem;
-           color: var(--primary);
-           margin-bottom: 1rem;
-       }
+.dropdown a:hover {
+   background: var(--accent);
+}
 
-       .content {
-           max-width: 1200px;
-           margin: 0 auto;
-           padding: 2rem;
-       }
+/* Header */
+.header {
+   min-height: 100vh;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   padding: 6rem 2rem;
+   background: rgba(3, 7, 18, 0.6);
+}
 
-       .rule-section {
-           background: rgba(45, 52, 54, 0.9);
-           border-radius: 10px;
-           padding: 2rem;
-           margin: 2rem 0;
-           border-left: 4px solid var(--primary);
-       }
+.header h1 {
+   font-size: clamp(3rem, 8vw, 5.5rem);
+   font-weight: 800;
+   color: var(--text-light);
+   text-shadow: 0 0 10px rgba(155, 28, 28, 0.3);
+   margin-bottom: 1.5rem;
+   letter-spacing: -2px;
+   animation: glow 2s ease-in-out infinite alternate;
+}
 
-       .alert-box {
-           background: rgba(214, 48, 49, 0.1);
-           border: 2px solid var(--primary);
-           padding: 1rem;
-           margin: 1rem 0;
-           border-radius: 5px;
-       }
+.header p {
+   font-size: 1.25rem;
+   color: var(--text-dim);
+   max-width: 700px;
+   margin: 0 auto;
+}
 
-       .rule-title {
-           color: var(--primary);
-           font-size: 1.8rem;
-           margin-bottom: 1.5rem;
-           border-bottom: 2px solid var(--primary);
-           padding-bottom: 0.5rem;
-       }
+/* Content */
+.content {
+   max-width: 1280px;
+   margin: 0 auto;
+   padding: 4rem 2rem;
+   backdrop-filter: blur(8px);
+   background: rgba(0, 0, 0, 0.2);
+   border-radius: 20px;
+}
 
-       .sub-section {
-           margin: 1.5rem 0;
-       }
+.rule-section {
+   background: rgba(31, 41, 55, 0.75);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-radius: 16px;
+   padding: 2.5rem;
+   margin: 3rem 0;
+   transition: all 0.3s ease;
+}
 
-       .sub-section h3 {
-           color: var(--accent);
-           margin-bottom: 1rem;
-       }
+.rule-section:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 0 20px rgba(155, 28, 28, 0.1);
+}
 
-       .rule-list {
-           list-style: none;
-       }
+.rule-title {
+   font-size: 2.5rem;
+   color: var(--text-light);
+   margin-bottom: 2rem;
+   padding-bottom: 1rem;
+   border-bottom: 2px solid var(--accent);
+}
 
-       .rule-list li {
-           margin: 0.8rem 0;
-           padding-left: 1.5rem;
-           position: relative;
-       }
+.sub-section {
+   margin: 2.5rem 0;
+}
 
-       .rule-list li:before {
-           content: "•";
-           color: var(--accent);
-           position: absolute;
-           left: 0;
-       }
+.sub-section h3 {
+   font-size: 1.8rem;
+   color: var(--accent);
+   margin-bottom: 1.5rem;
+}
 
-       #menu-toggle {
-           display: none;
-       }
+.rule-list {
+   list-style: none;
+}
 
-       @media (max-width: 768px) {
-           .nav-menu {
-               display: none;
-               flex-direction: column;
-           }
+.rule-list li {
+   background: rgba(55, 65, 81, 0.6);
+   padding: 1.25rem 1.5rem;
+   margin: 1rem 0;
+   border-radius: 8px;
+   border-left: 3px solid var(--accent);
+   transition: all 0.3s ease;
+}
 
-           .nav-menu.active {
-               display: flex;
-           }
+.rule-list li:hover {
+   background: rgba(55, 65, 81, 0.8);
+   transform: translateX(10px);
+   box-shadow: 0 0 15px rgba(155, 28, 28, 0.1);
+}
 
-           #menu-toggle {
-               display: block;
-               padding: 1rem;
-               background: none;
-               border: none;
-               color: var(--text-light);
-               cursor: pointer;
-           }
+.alert-box {
+   background: rgba(155, 28, 28, 0.2);
+   border: 1px solid var(--accent);
+   border-radius: 10px;
+   padding: 1.5rem;
+   margin: 2rem 0;
+   position: relative;
+}
 
-           .dropdown {
-               position: static;
-               background: rgba(0, 0, 0, 0.5);
-           }
+.alert-box h4 {
+   color: var(--accent);
+   margin-bottom: 1rem;
+   font-size: 1.2rem;
+}
 
-           .header h1 {
-               font-size: 2rem;
-           }
-       }
-   </style>
+/* Footer */
+footer {
+   background: rgba(3, 7, 18, 0.9);
+   padding: 4rem 0 2rem;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(10px);
+   margin-top: 4rem;
+}
+
+.footer-content {
+   max-width: 1280px;
+   margin: 0 auto;
+   padding: 0 2rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 3rem;
+}
+
+.footer-section h3 {
+   color: var(--accent);
+   font-size: 1.3rem;
+   margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+   list-style: none;
+}
+
+.footer-section a {
+   color: var(--text-dim);
+   text-decoration: none;
+   padding: 0.5rem 0;
+   display: block;
+   transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+   color: var(--text-light);
+   transform: translateX(5px);
+}
+
+.social-links {
+   display: flex;
+   gap: 1rem;
+   margin-top: 1.5rem;
+}
+
+.social-links a {
+   background: var(--accent);
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 0 15px var(--accent);
+}
+
+.social-links i {
+   color: white;
+}
+
+.footer-bottom {
+   text-align: center;
+   padding-top: 2rem;
+   margin-top: 3rem;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+   color: var(--text-dim);
+}
+
+/* Animations */
+@keyframes glow {
+   from {
+       text-shadow: 0 0 10px rgba(155, 28, 28, 0.3);
+   }
+   to {
+       text-shadow: 0 0 20px rgba(155, 28, 28, 0.5);
+   }
+}
+
+@keyframes fadeInUp {
+   from {
+       opacity: 0;
+       transform: translateY(20px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+   width: 10px;
+   background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--accent);
+   border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+   .nav-menu {
+       display: none;
+       position: absolute;
+       top: 100%;
+       left: 0;
+       width: 100%;
+       background: rgba(3, 7, 18, 0.95);
+       padding: 1rem;
+   }
+
+   .nav-menu.active {
+       display: flex;
+       flex-direction: column;
+   }
+
+   .nav-item {
+       height: auto;
+   }
+
+   .nav-link {
+       padding: 1rem;
+   }
+
+   .dropdown {
+       position: static;
+       width: 100%;
+       opacity: 1;
+       visibility: visible;
+       transform: none;
+   }
+
+   .rule-section {
+       padding: 1.5rem;
+   }
+
+   .header h1 {
+       font-size: 2.5rem;
+   }
+
+   .content {
+       padding: 2rem 1rem;
+       margin: 1rem;
+   }
+}
+</style>
 </head>
 <body>
    <nav class="navbar">
        <div class="nav-container">
-           <button id="menu-toggle">☰ Menu</button>
            <ul class="nav-menu">
                <li class="nav-item">
                    <a href="#hrp" class="nav-link">Règlement HRP</a>
@@ -265,80 +470,148 @@
            </div>
        </div>
 
-       <!-- [Section HRP sera ajoutée ici] -->
+       <!-- Règlement des Factions -->
+       <div class="rule-section" id="reglement-faction">
+           <h1 class="rule-title">⚔️ Règlement des Factions</h1>
+           
+           <div class="sub-section">
+               <h3>1. Généralités</h3>
+               <ul class="rule-list">
+                   <li>Respect mutuel obligatoire entre membres</li>
+                   <li>Immersion dans l'univers post-apocalyptique requise</li>
+                   <li>Concordance avec le lore du serveur obligatoire</li>
+               </ul>
+               <div class="alert-box">
+                   <h4>⚠️ Sanctions Triche</h4>
+                   <p>Ban permanent + Dissolution de faction si le chef est impliqué</p>
+                   <p>Suppression de 80% des ressources</p>
+               </div>
+           </div>
 
-       <!-- [Section Factions sera ajoutée ici] -->
-      <!-- Section Règlement des Factions -->
-<div class="rule-section" id="reglement-faction">
-    <h1 class="rule-title">⚔️ Règlement des Factions</h1>
-    
-    <div class="sub-section">
-        <h3>1. Généralités</h3>
-        <ul class="rule-list">
-            <li>Respect mutuel obligatoire entre membres</li>
-            <li>Immersion dans l'univers post-apocalyptique requise</li>
-            <li>Concordance avec le lore du serveur obligatoire</li>
-        </ul>
-        <div class="alert-box">
-            <h4>⚠️ Sanctions Triche</h4>
-            <p>Ban permanent + Dissolution de faction si le chef est impliqué</p>
-            <p>Suppression de 80% des ressources</p>
-        </div>
-    </div>
+           <div class="sub-section">
+               <h3>2. Gestion des Factions</h3>
+               <ul class="rule-list">
+                   <li>1 leader responsable + maximum 2 adjoints</li>
+                   <li>Relations inter-factions via ticket staff</li>
+               </ul>
+           </div>
 
-    <div class="sub-section">
-        <h3>2. Gestion des Factions</h3>
-        <ul class="rule-list">
-            <li>1 leader responsable + maximum 2 adjoints</li>
-            <li>Relations inter-factions via ticket staff</li>
-        </ul>
-    </div>
+           <div class="sub-section">
+               <h3>3. Conflits et Combat</h3>
+               <ul class="rule-list">
+                   <li>Combats équitables et sans triche</li>
+                   <li>Respect des prisonniers obligatoire</li>
+                   <li>Torture ou mise à mort uniquement avec raison RP</li>
+               </ul>
+           </div>
 
-    <div class="sub-section">
-        <h3>3. Conflits et Combat</h3>
-        <ul class="rule-list">
-            <li>Combats équitables et sans triche</li>
-            <li>Respect des prisonniers obligatoire</li>
-            <li>Torture ou mise à mort uniquement avec raison RP</li>
-        </ul>
-    </div>
+           <div class="sub-section">
+               <h3>4. Ressources et Commerce</h3>
+               <ul class="rule-list">
+                   <li>Gestion réaliste des ressources limitées</li>
+                   <li>Pillages justifiés et roleplay uniquement</li>
+               </ul>
+           </div>
 
-    <div class="sub-section">
-        <h3>4. Ressources et Commerce</h3>
-        <ul class="rule-list">
-            <li>Gestion réaliste des ressources limitées</li>
-            <li>Pillages justifiés et roleplay uniquement</li>
-        </ul>
-    </div>
+           <div class="sub-section">
+               <h3>5. Communication</h3>
+               <ul class="rule-list">
+                   <li>Discord faction obligatoire avec accès staff</li>
+                   <li>Communication RP uniquement via Radio FiveM</li>
+                   <li>Espionnage autorisé (RP uniquement)</li>
+               </ul>
+           </div>
 
-    <div class="sub-section">
-        <h3>5. Communication</h3>
-        <ul class="rule-list">
-            <li>Discord faction obligatoire avec accès staff</li>
-            <li>Communication RP uniquement via Radio FiveM</li>
-            <li>Espionnage autorisé (RP uniquement)</li>
-        </ul>
-    </div>
+           <div class="sub-section">
+               <h3>6. Sanctions</h3>
+               <ul class="rule-list">
+                   <li>Avertissements pour infractions mineures</li>
+                   <li>Ban permanent possible pour infractions graves</li>
+                   <li>Plaintes examinées de manière impartiale</li>
+               </ul>
+           </div>
+       </div>
 
-    <div class="sub-section">
-        <h3>6. Sanctions</h3>
-        <ul class="rule-list">
-            <li>Avertissements pour infractions mineures</li>
-            <li>Ban permanent possible pour infractions graves</li>
-            <li>Plaintes examinées de manière impartiale</li>
-        </ul>
-    </div>
+       <!-- Officialisation -->
+       <div class="rule-section" id="officialisation">
+           <h1 class="rule-title">📋 Officialisation d'une Faction</h1>
+           
+           <div class="sub-section">
+               <h3>1. Conditions de Base</h3>
+               <ul class="rule-list">
+                   <li>Minimum 5 membres actifs</li>
+                   <li>Notoriété établie sur le serveur</li>
+                   <li>Investissement démontré dans le temps</li>
+               </ul>
+           </div>
 
-    <div class="alert-box">
-        <p>Les administrateurs se réservent le droit de modifier ces règles selon l'évolution du serveur.</p>
-    </div>
-</div>
+           <div class="sub-section">
+               <h3>2. Thème et Cohérence</h3>
+               <div class="alert-box">
+                   <h4>⚠️ Important</h4>
+                   <p>Le thème doit être original et en accord avec l'univers post-apocalyptique. Les inspirations directes de séries/films sont interdites.</p>
+               </div>
+           </div>
+
+           <div class="sub-section">
+               <h3>3. Processus de Création</h3>
+               <ul class="rule-list">
+                   <li>Nom de la faction</li>
+                   <li>Description détaillée</li>
+                   <li>Liste des membres initiaux</li>
+                   <li>Règlement interne</li>
+                   <li>Plan d'activités</li>
+               </ul>
+           </div>
+
+           <div class="sub-section">
+               <h3>4. Structure Requise</h3>
+               <ul class="rule-list">
+                   <li>Hiérarchie clairement définie</li>
+                   <li>Code de conduite établi</li>
+                   <li>Système de sanctions interne</li>
+                   <li>Organisation d'événements réguliers</li>
+               </ul>
+           </div>
+       </div>
    </div>
 
-   <script>
-       document.getElementById('menu-toggle').addEventListener('click', function() {
-           document.querySelector('.nav-menu').classList.toggle('active');
-       });
-   </script>
+   <footer>
+       <div class="footer-content">
+           <div class="footer-section">
+               <h3>Zeronium</h3>
+               <p>Serveur RP Post-Apocalyptique FiveM</p>
+               <div class="social-links">
+                <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="#" title="Forum"><i class="far fa-comments"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Liens Rapides</h3>
+            <ul>
+                <li><a href="#rp">Règlement RP</a></li>
+                <li><a href="#reglement-faction">Règlement Factions</a></li>
+                <li><a href="#officialisation">Officialisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Communauté</h3>
+            <ul>
+                <li><a href="#" target="_blank">Discord</a></li>
+                <li><a href="#" target="_blank">Forum</a></li>
+                <li><a href="#" target="_blank">Support</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Zeronium - Tous droits réservés</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+</script>
 </body>
 </html>
